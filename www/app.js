@@ -10,7 +10,7 @@ app.use(express.static(__dirname + "/public"));
 
 // defining routes
 app.get("/", function (req, res) {
-  res.redirect("/calibration");
+  res.redirect(__dirname + "/index.html");
 });
 app.get("/calibration", function (req, res) {
   res.sendFile(__dirname + "/calibration.html");
