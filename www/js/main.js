@@ -1,4 +1,6 @@
 window.onload = function () {
+  //time of inactivity after which questions are displayed
+  var timeLeft = 100;
   //start the webgazer tracker
   webgazer
     .setRegression("ridge") /* currently must set regression and tracker */
@@ -27,9 +29,20 @@ window.onload = function () {
           resultContainer.classList.remove("warning");
           resultContainer.classList.add("attentive");
         }
+      } else {
+        timeLeft--;
+        console.log(timeLeft);
+        if (timeLeft == -1) {
+          timeLeft = 100;
+          doSomething();
+        }
+
+        function doSomething() {
+          alert(
+            "Face not detected. Please answer the questions to confirm you are present"
+          );
+        }
       }
-      /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
-      //   console.log(clock); /* elapsed time in milliseconds since webgazer.begin() was called */
     })
     .begin()
     .showPredictionPoints(
