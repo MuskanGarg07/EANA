@@ -1,3 +1,4 @@
+var t;
 window.onload = function () {
   //time of inactivity after which questions are displayed
   var timeLeft = 100;

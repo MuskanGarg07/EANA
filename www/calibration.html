@@ -72,7 +72,6 @@ Instructions on use can be found in the README repository.
     <input type="button" class="Calibration" id="Pt9"></input>
   </div>
 
-  <!-- Modal -->
   <div id="helpModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
@@ -89,11 +88,33 @@ Instructions on use can be found in the README repository.
 
     </div>
   </div>
+         
+          <!-- <button type="button" id="cli" class="btn btn-primary" data-dismiss="modal" onclick="">Calibrate</button> -->
   <div id="result"></div>
   <div class="coordinates">x:<span id="x-coordinate"></span> y:<span id="y-coordinate"></span></div>
+  <!--<video width="300" height ="300" style="position:absolute;top:120px;left:760px;" controls  id="oo">
+    <source src="abcd.mp4" type="video/mp4">
+    Your browser does not support HTML video.
+    </video>-->
+    <button type="button" id="bb" class="btn btn-primary" name="iframe_a" style="position:absolute;top:70px;left:750px;width:100px;">Start</button>
+    <iframe style="position:absolute;top:120px;left:300px;display:none;height:500px;width:800px;" name="iframe_a" src="https://us02web.zoom.us/j/85103849735?pwd=MFc2anJIV2w3MDEvYm8wYk11Q1ZYdz09"  id="f"></iframe>
+
   <!-- Latest compiled JavaScript -->
   <script src="./js/resize_canvas.js"></script>
   <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+  <!-- <script>
+    var o=document.getElementById("cli");
+    o.onclick=function(){
+Restart();
+o.style.display="none";
+    };
+    </script> -->
+    <script>
+      var fr=document.getElementById("bb");
+      fr.onclick=function(){
+        document.getElementById("f").style.display="block";
+      }
+    </script>
 
 </body>
 
