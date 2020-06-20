@@ -10,6 +10,10 @@ app.use(express.static(__dirname + "/public"));
 
 // defining routes
 app.get("/", function (req, res) {
+  res.redirect(__dirname + "/index.html");
+});
+app.post("/calibration", function (req, res) {
+  // console.log(req.body.videoUrl);
   res.redirect("/calibration");
 });
 app.get("/calibration", function (req, res) {

@@ -1,15 +1,46 @@
 window.onload = function () {
+  //time of inactivity after which questions are displayed
+  var timeLeft=100;
   //start the webgazer tracker
   webgazer
     .setRegression("ridge") /* currently must set regression and tracker */
     //.setTracker('clmtrackr')
     .setGazeListener(function (data, clock) {
-      console.log(data);
+      // console.log(data);
+      if (data != null) {
+        var x = Math.round(data.x);
+        var y = Math.round(data.y);
+        document.getElementById("x-coordinate").innerHTML = x;
+        document.getElementById("y-coordinate").innerHTML = y;
+        var resultContainer = document.getElementById("result");
+        if (
+          x < 0.15 * window.innerWidth ||
+          x > 0.85 * window.innerWidth ||
+          y < 0.15 * window.innerHeight ||
+          y > 0.85 * window.innerHeight
+        ) {
+          resultContainer.innerHTML = "Warning! Student not paying attention";
+          resultContainer.classList.remove("attentive");
+          resultContainer.classList.add("warning");
+        } else {
+          resultContainer.innerHTML = "Student is attentive";
+          resultContainer.classList.remove("warning");
+          resultContainer.classList.add("attentive");
+        }
+      } else {
+        timeLeft--;
+        console.log(timeLeft);
+        if (timeLeft == -1) {
+          timeLeft = 100;
+          doSomething();
+        }
 
-      /* data is an object containing an x and y key which are the x and y prediction coordinates (no bounds limiting) */
-      console.log(
-        clock
-      ); /* elapsed time in milliseconds since webgazer.begin() was called */
+        function doSomething() {
+          alert(
+            "Face not detected. Please answer the questions to confirm you are present"
+          );
+        }
+      }
     })
     .begin()
     .showPredictionPoints(
