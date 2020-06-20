@@ -6,6 +6,7 @@ const { data } = require("jquery");
 // set up
 app.set("view engine", "ejs");
 const port = process.env.PORT || 3000;
+app.use(express.static(__dirname + "/public"));
 
 // defining routes
 app.get("/", function (req, res) {
