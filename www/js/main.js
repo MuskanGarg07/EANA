@@ -73,7 +73,7 @@ window.onload = function () {
     canvas.height = window.innerHeight;
     canvas.style.position = "fixed";
   };
-  var nw=document.getElementById("result");
+  var nw=document.getElementById("cc");
   nw.onclick=function(){
     x_array.push(time_com);
     x_array.push(total_time);
