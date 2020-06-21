@@ -7,9 +7,9 @@ var CalibrationPoints = {};
 function ClearCanvas() {
   $(".Calibration").hide();
   console.log("cleared canvas");
-
   var canvas = document.getElementById("plotting_canvas");
   canvas.getContext("2d").clearRect(0, 0, canvas.width, canvas.height);
+  
 }
 
 /**
@@ -112,6 +112,7 @@ $(document).ready(function () {
               if (isConfirm) {
                 //clear the calibration & hide the last middle button
                 ClearCanvas();
+                //document.getElementById("f").style.display = "block";
               } else {
                 //use restart function to restart the calibration
                 ClearCalibration();
