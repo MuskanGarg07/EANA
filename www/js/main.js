@@ -3,6 +3,9 @@ var x_array=[0,1];
 var time=0;
 var time_com=0;
 var total_time=0;
+var time2=0;
+var time_com2=0;
+var total_time2=0;
 window.onload = function () {
   //time of inactivity after which questions are displayed
   var timeLeft = 100;
@@ -55,7 +58,7 @@ window.onload = function () {
 
         function doSomething() {
           alert(
-            "Face not detected. Please answer the questions to confirm you are present"
+            "Face not detected. Please confirm you Presence."
           );
         }
       }
@@ -92,6 +95,7 @@ window.document.location='./result.htm';
         total_time=total_time + new Date().getTime()-time;
             }
     }
+    
     
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {

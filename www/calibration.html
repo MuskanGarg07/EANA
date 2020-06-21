@@ -148,6 +148,7 @@ Instructions on use can be found in the README repository.
     <source src="abcd.mp4" type="video/mp4">
     Your browser does not support HTML video.
     </video>-->
+    <!-- <button type="button" id="bb" class="btn btn-primary" name="iframe_a" style="position:absolute;top:70px;left:750px;width:100px;">Start the session</button> -->
     <button type="button" id="bb" class="btn btn-primary" name="iframe_a" style="position:absolute;top:70px;left:750px;width:100px;">Start the session</button>
     <iframe style="position:absolute;top:120px;left:300px;display:none;height:500px;width:800px;" name="iframe_a" src="https://us02web.zoom.us/j/85103849735?pwd=MFc2anJIV2w3MDEvYm8wYk11Q1ZYdz09"  id="f"></iframe>
     <button type="button" id="cc" class="btn btn-primary"style="position:absolute;top:60px;left:750px;width:100px;">See result</button>
@@ -174,8 +175,12 @@ o.style.display="none";
     </script> -->
     <script>
       var fr=document.getElementById("bb");
+      var q=0;
       fr.onclick=function(){
+        q=JSON.parse(localStorage.getItem('hey2'));
+        document.getElementById("f").src="\""+q+"\"";
         document.getElementById("f").style.display="block";
+
       }
     </script>
 
