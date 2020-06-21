@@ -1,5 +1,10 @@
 body {
   min-width: 600px !important;
+  background-image: url("https://img.freepik.com/free-photo/blank-black-chalkboard-gray-background_53876-42941.jpg?size=626&ext=jpg");
+  height:100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 /* coordinates styling */
 .coordinates {
