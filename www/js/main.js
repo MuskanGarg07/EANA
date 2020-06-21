@@ -1,4 +1,8 @@
 var t=0;
+var x_array=[0,1];
+var time=0;
+var time_com=0;
+var total_time=0;
 window.onload = function () {
   //time of inactivity after which questions are displayed
   var timeLeft = 100;
@@ -24,13 +28,13 @@ window.onload = function () {
           y > 0.85 * window.innerHeight
         ) {
           t++;
-          console.log(t);
+          x_array.push(0);
           resultContainer.innerHTML = "Warning! Student not paying attention";
           resultContainer.classList.remove("attentive");
           resultContainer.classList.add("warning");
         } else {
           t=0;
-          console.log(t);
+          x_array.push(1);
           resultContainer.innerHTML = "Student is attentive";
           resultContainer.classList.remove("warning");
           resultContainer.classList.add("attentive");
@@ -38,11 +42,12 @@ window.onload = function () {
         if(t>=10){
           console.log("showing sheet");
           document.getElementById("myModal").style.display = "block";
+          time =new Date().getTime();
+
         }
       } else {
         timeLeft--;
         console.log(timeLeft);
-        console.log("hello");
         if (timeLeft == -1) {
           timeLeft = 100;
           doSomething();
@@ -68,18 +73,34 @@ window.onload = function () {
     canvas.height = window.innerHeight;
     canvas.style.position = "fixed";
   };
+  var nw=document.getElementById("result");
+  nw.onclick=function(){
+    x_array.push(time_com);
+    x_array.push(total_time);
+    localStorage.setItem('hey',JSON.stringify(x_array));
+window.document.location='./result.htm';
+  };
+
 
   {
     var modal = document.getElementById("myModal");
     var span = document.getElementsByClassName("close")[0];
     span.onclick = function() {
       modal.style.display = "none";
+      if(new Date().getTime()-time>100){
+        time_com++;
+        total_time=total_time + new Date().getTime()-time;
+            }
     }
     
     // When the user clicks anywhere outside of the modal, close it
     window.onclick = function(event) {
       if (event.target == modal) {
         modal.style.display = "none";
+        if(new Date().getTime()-time>100){
+          time_com++;
+          total_time=total_time + new Date().getTime()-time;
+              }
       }
     }
   }
