@@ -42,7 +42,7 @@ window.onload = function () {
           resultContainer.classList.remove("warning");
           resultContainer.classList.add("attentive");
         }
-        if(t>=10){
+        if(t>=50){
           console.log("showing sheet");
           document.getElementById("myModal").style.display = "block";
           time =new Date().getTime();
@@ -81,7 +81,7 @@ window.onload = function () {
     x_array.push(time_com);
     x_array.push(total_time);
     localStorage.setItem('hey',JSON.stringify(x_array));
-window.document.location='./result.htm';
+window.document.location='./result.html';
   };
 
 

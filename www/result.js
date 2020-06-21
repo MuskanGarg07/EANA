@@ -22,7 +22,11 @@ console.log(res[1]);
             text: "Attention Span"
         },
         axisY:{
-            includeZero: false
+            includeZero: false,
+            title:"Attention Status"
+        },
+        axisX:{
+            title:"Time in Deciseconds"
         },
         data: [{        
             type: "line",

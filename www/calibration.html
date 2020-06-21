@@ -76,34 +76,7 @@ Instructions on use can be found in the README repository.
   <script src="./js/precision_calculation.js"></script>
   <script src="./js/precision_store_points.js"></script>
 
-  <nav id="webgazerNavbar" class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <!-- The hamburger menu button -->
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-
-      </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav">
-          <!-- Accuracy -->
-          <li id="Accuracy"><a>Not yet Calibrated</a></li>
-          <li onclick="Restart()"><a href="#">Recalibrate</a></li>
-          <li onclick="var reset = async () => {await localforage.clear(); location.reload()}; reset()"><a
-              href="#">Reset Model</a></li>
-          <li onclick="window.applyKalmanFilter = !window.applyKalmanFilter"><a href="#">Toggle Kalman Filter</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-          <li><button class="helpBtn" data-toggle="modal" data-target="#helpModal"><a data-toggle="modal"><span
-                  class="glyphicon glyphicon-cog"></span> Help</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+ 
   <!-- Calibration points -->
   <div class="calibrationDiv">
     <input type="button" class="Calibration" id="Pt1"></input>
@@ -117,7 +90,7 @@ Instructions on use can be found in the README repository.
     <input type="button" class="Calibration" id="Pt9"></input>
   </div>
 
- <div id="helpModal" class="modal fade" role="dialog">
+ <!-- <div id="helpModal" class="modal fade" role="dialog">
     <div class="modal-dialog">
 
        <div class="modal-content">
@@ -131,7 +104,7 @@ Instructions on use can be found in the README repository.
       </div>
 
     </div>
-  </div>
+  </div> -->
   <div id="myModal" class="modall">
 
   
@@ -149,9 +122,9 @@ Instructions on use can be found in the README repository.
     Your browser does not support HTML video.
     </video>-->
     <!-- <button type="button" id="bb" class="btn btn-primary" name="iframe_a" style="position:absolute;top:70px;left:750px;width:100px;">Start the session</button> -->
-    <button type="button" id="bb" class="btn btn-primary" name="iframe_a" style="position:absolute;top:70px;left:750px;width:100px;">Start the session</button>
-    <iframe style="position:absolute;top:120px;left:300px;display:none;height:500px;width:800px;" name="iframe_a" src="https://us02web.zoom.us/j/85103849735?pwd=MFc2anJIV2w3MDEvYm8wYk11Q1ZYdz09"  id="f"></iframe>
-    <button type="button" id="cc" class="btn btn-primary"style="position:absolute;top:60px;left:750px;width:100px;">See result</button>
+    <button type="button" id="bb" class="btn btn-primary" name="iframe_a" style="position:absolute;top:150px;left:1100px;width:100px;">Start the session</button>
+    <iframe style="position:absolute;top:120px;left:300px;display:none;height:500px;width:800px;" name="iframe_a" src="https://us02web.zoom.us/j/89896873900?pwd=Q21QcjNFN3d4cEZsdUlEQmxoWDhqZz09#success"  id="f"></iframe>
+    <button type="button" id="cc" class="btn btn-primary"style="position:absolute;top:200px;left:1100px;width:100px;">See result</button>
   <!-- <script>
     var nw=document.getElementById("cc");
   nw.onclick=function(){
@@ -175,10 +148,7 @@ o.style.display="none";
     </script> -->
     <script>
       var fr=document.getElementById("bb");
-      var q=0;
       fr.onclick=function(){
-        q=JSON.parse(localStorage.getItem('hey2'));
-        document.getElementById("f").src="\""+q+"\"";
         document.getElementById("f").style.display="block";
 
       }
