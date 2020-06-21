@@ -1,4 +1,4 @@
-var t;
+var t=0;
 window.onload = function () {
   //time of inactivity after which questions are displayed
   var timeLeft = 100;
@@ -13,6 +13,7 @@ window.onload = function () {
       if (data != null) {
         var x = Math.round(data.x);
         var y = Math.round(data.y);
+        console.log(x);
         document.getElementById("x-coordinate").innerHTML = x;
         document.getElementById("y-coordinate").innerHTML = y;
         var resultContainer = document.getElementById("result");
@@ -22,17 +23,26 @@ window.onload = function () {
           y < 0.15 * window.innerHeight ||
           y > 0.85 * window.innerHeight
         ) {
+          t++;
+          console.log(t);
           resultContainer.innerHTML = "Warning! Student not paying attention";
           resultContainer.classList.remove("attentive");
           resultContainer.classList.add("warning");
         } else {
+          t=0;
+          console.log(t);
           resultContainer.innerHTML = "Student is attentive";
           resultContainer.classList.remove("warning");
           resultContainer.classList.add("attentive");
         }
+        if(t>=10){
+          console.log("showing sheet");
+          document.getElementById("myModal").style.display = "block";
+        }
       } else {
         timeLeft--;
         console.log(timeLeft);
+        console.log("hello");
         if (timeLeft == -1) {
           timeLeft = 100;
           doSomething();
@@ -59,6 +69,20 @@ window.onload = function () {
     canvas.style.position = "fixed";
   };
 
+  {
+    var modal = document.getElementById("myModal");
+    var span = document.getElementsByClassName("close")[0];
+    span.onclick = function() {
+      modal.style.display = "none";
+    }
+    
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function(event) {
+      if (event.target == modal) {
+        modal.style.display = "none";
+      }
+    }
+  }
   function checkIfReady() {
     if (webgazer.isReady()) {
       setup();
